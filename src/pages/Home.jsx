@@ -1,27 +1,27 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
 import GetUserDetails from '../functions/GetUserDetails';
-
+import { Link } from 'react-router-dom';
 const Home = () => {
   const { userDetails } = GetUserDetails();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!userDetails) {
-      navigate('/login');
-    }
-  }, [userDetails, navigate]);
-
-  if (!userDetails) {
-    return <p>Loading user details...</p>;
-  }
-
   return (
-    <div className="home-home_page">
-      <div className="home-container">
-        <div className="home-dashboard">{userDetails.username}</div>
+    <>
+      <div className="home-home_page">
+        {userDetails ? (
+          <>
+            <div className="home-container">
+              <div className="home-dashboard">{userDetails.username}</div>
+            </div>
+          </>
+        ) : (
+          <>
+            <p>Loading user details... </p>
+            <p>
+              Not Logged in ? <Link to="/login"></Link>
+            </p>
+          </>
+        )}
       </div>
-    </div>
+    </>
   );
 };
 
