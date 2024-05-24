@@ -32,7 +32,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        'vercelLink/auth/login',
+        'https://smn-server.vercel.app/auth/login',
         {
           ...inputValue,
         },

@@ -9,7 +9,7 @@ const GetUserDetails = () => {
     const GetUserDetails = async () => {
       console.log(username);
       const response = await fetch(
-        `vercelLink/api/user/${username}`
+        `https://smn-server.vercel.app/api/user/${username}`
       );
 
       const user = await response.json();
