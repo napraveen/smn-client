@@ -8,7 +8,7 @@ const IsAuthenticated = () => {
 
   useEffect(() => {
     axios
-      .get('https://smn-server.vercel.app/auth/check-auth', {
+      .get('http://localhost:4000/auth/check-auth', {
         withCredentials: true,
       })
       .then((response) => {

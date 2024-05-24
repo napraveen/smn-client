@@ -33,7 +33,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        'https://smn-server.vercel.app/auth/signup',
+        'http://localhost:4000/auth/signup',
         {
           ...inputValue,
         },

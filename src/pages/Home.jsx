@@ -3,6 +3,7 @@ import GetUserDetails from '../functions/GetUserDetails';
 import { Link } from 'react-router-dom';
 const Home = () => {
   const { userDetails } = GetUserDetails();
+
   return (
     <>
       <div className="home-home_page">

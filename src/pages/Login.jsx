@@ -27,12 +27,11 @@ const Login = () => {
     toast.success(msg, {
       position: 'bottom-left',
     });
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        'https://smn-server.vercel.app/auth/login',
+        'http://localhost:4000/auth/login',
         {
           ...inputValue,
         },
@@ -49,6 +48,11 @@ const Login = () => {
         handleError(message);
       }
     } catch (error) {
+      if (error.response && error.response.data && error.response.data.errors) {
+        error.response.data.errors.forEach((err) => handleError(err.msg));
+      } else {
+        handleError('Login failed. Please check your credentials.');
+      }
       console.log(error);
     }
     setInputValue({

@@ -1,25 +1,33 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import IsAuthenticated from './IsAuthenticated';
+
 const GetUserDetails = () => {
   const { authenticated, username } = IsAuthenticated();
   const [userDetails, setUserDetails] = useState(null);
 
   useEffect(() => {
-    const GetUserDetails = async () => {
-      console.log(username);
-      const response = await fetch(
-        `https://smn-server.vercel.app/api/user/${username}`
-      );
+    const getUserDetails = async () => {
+      if (username) {
+        try {
+          const response = await fetch(
+            `http://localhost:4000/api/user/${username}`
+          );
 
-      const user = await response.json();
-      console.log(user);
-
-      setUserDetails(user);
+          if (response.ok) {
+            const user = await response.json();
+            setUserDetails(user);
+          } else {
+            console.error('Failed to fetch user details:', response.status);
+          }
+        } catch (error) {
+          console.error('Error fetching user details:', error);
+        }
+      }
     };
 
-    GetUserDetails();
+    getUserDetails();
   }, [username]);
+
   return { userDetails };
 };
 
