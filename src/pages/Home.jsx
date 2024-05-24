@@ -16,7 +16,7 @@ const Home = () => {
           <>
             <p>Loading user details... </p>
             <p>
-              Not Logged in ? <Link to="/login"></Link>
+              Not Logged in ? <Link to="/login">Login</Link>
             </p>
           </>
         )}
