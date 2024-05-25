@@ -1,0 +1,274 @@
+/* header {
+  display: flex;
+  min-height: 88px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  height: 25px;
+}
+
+.header-middle {
+  display: flex;
+  height: 32px;
+}
+
+.header-middle p {
+  margin-right: 20px;
+}
+
+.header-right {
+  display: flex;
+  height: 48px;
+}
+
+.get-started {
+  width: 164px;
+  border-radius: 10px;
+  background-color: #ff4f00;
+  color: white;
+  border: none;
+  height: 48px;
+}
+
+.get-started:hover {
+  background-color: #ff6b27;
+  color: black;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+  .dashboard-img {
+    width: 80%;
+  }
+
+  .body-right-img-container {
+    height: 200px;
+    margin-top: 20px;
+  }
+
+  .body-left-inside {
+    width: 70%;
+    margin-left: 5%;
+  }
+
+  .home-desc-1 {
+    margin-top: 100px;
+  }
+
+  .home-desc-2 {
+    margin-top: 100px;
+    flex-direction: column;
+  }
+
+  .home-subscribe h2 {
+    font-size: 30px;
+  }
+
+  .home-subscribe-input {
+    width: 200px;
+    height: 40px;
+  }
+
+  .subscribe-now {
+    height: 40px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
+
+  .footer-right {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+}
+
+@media only screen and (max-width: 515px) {
+  .get-started {
+    max-width: 15vw;
+    height: 35px;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .get-started:hover {
+    background-color: #ff6b27;
+    color: black;
+    cursor: pointer;
+  }
+} */
+
+/* New  */
+
+.home-home_page {
+  /* background-color: #0d1224; */
+}
+
+header {
+  display: flex;
+  min-height: 88px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  height: 25px;
+}
+
+.header-middle {
+  display: flex;
+  height: 32px;
+}
+
+.header-middle p {
+  margin-right: 20px;
+}
+
+.header-right {
+  display: flex;
+  height: 48px;
+}
+
+.get-started {
+  width: 164px;
+  border-radius: 10px;
+  background-color: #ff4f00;
+  /* background-color: #ffaa00; */
+  color: white;
+  border: none;
+  height: 48px;
+}
+
+.logout,.login {
+  width: 164px;
+  border-radius: 10px;
+  background-color: #9bffb7;
+  /* background-color: #ffaa00; */
+  color: black;
+  border: none;
+  height: 48px;
+}
+
+.get-started:hover {
+  background-color: #ff6b27;
+  color: black;
+  cursor: pointer;
+}
+.logout:hover,.login:hover {
+  background-color: #58f384;
+  color: black;
+  cursor: pointer;
+}
+
+.home-body {
+  display: flex;
+  height: 469px;
+  justify-content: center;
+  align-items: center;
+}
+
+.body-left {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 348px;
+  margin-left: 100px;
+}
+
+.body-right {
+  width: 50%;
+}
+
+.body-left-inside {
+  width: 50vw;
+}
+
+.body-right-img-container {
+  height: 364px;
+  width: 431px;
+}
+
+.dashboard-img {
+  height: 20rem;
+  width: 20rem;
+  border-radius: 50%;
+  margin-left: 30px;
+}
+
+.body-left-inside h1 {
+  font-size: 40px;
+}
+
+.body-left-inside p {
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .dashboard-img {
+    width: 80%;
+  }
+
+  .home-body {
+    flex-direction: column;
+    margin-top: 100px;
+  }
+
+  .body-left,
+  .body-right {
+    width: 100%;
+    height: auto;
+  }
+
+  .body-left {
+    margin-top: 0px;
+  }
+
+  .body-right-img-container {
+    height: 200px;
+    margin-top: 20px;
+  }
+
+  .body-left-inside {
+    width: 70%;
+    margin-left: 5%;
+  }
+}
+
+@media only screen and (max-width: 515px) {
+  .get-started,
+  .logout ,.login{
+    max-width: 15vw;
+    height: 35px;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .get-started:hover {
+    background-color: #ff6b27;
+    color: black;
+    cursor: pointer;
+  }
+
+  .logout:hover,.login:hover {
+    background-color: #58f384;
+    color: black;
+    cursor: pointer;
+  }
+}
+
+
+.home-header-text:hover{
+    color: #03a330;
+}

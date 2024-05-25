@@ -69,35 +69,47 @@ const Signup = () => {
       <div className="signup-form">
         <h1 className="signup-title">Signup Account</h1>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            value={email}
-            className="signup-email"
-            placeholder="Enter your email"
-            onChange={handleOnChange}
-          />
+          <div className="signup-form-div">
+            <label htmlFor="email">
+              Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </label>
+            <input
+              type="email"
+              name="email"
+              value={email}
+              className="signup-email"
+              placeholder="Enter your email"
+              onChange={handleOnChange}
+            />
+          </div>
+
           <br />
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            name="username"
-            className="signup-username"
-            value={username}
-            placeholder="Enter your username"
-            onChange={handleOnChange}
-          />
+          <div className="signup-form-div">
+            {' '}
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              name="username"
+              className="signup-username"
+              value={username}
+              placeholder="Enter your username"
+              onChange={handleOnChange}
+            />
+          </div>
+
           <br />
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            className="signup-password"
-            value={password}
-            placeholder="Enter your password"
-            onChange={handleOnChange}
-          />
+          <div className="signup-form-div">
+            <label htmlFor="password">Password&nbsp;&nbsp;</label>
+            <input
+              type="password"
+              name="password"
+              className="signup-password"
+              value={password}
+              placeholder="Enter your password"
+              onChange={handleOnChange}
+            />
+          </div>
+
           <br />
           <button type="submit" className="signup-submit">
             Submit

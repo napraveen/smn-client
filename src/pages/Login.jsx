@@ -75,10 +75,10 @@ const Login = () => {
       <form onSubmit={handleSubmit}>
         <div className="login-box">
           <h1>
-            <span>Hello</span>
+            <span>Hello&nbsp;</span>
             <span>Again!</span>
           </h1>
-          <label for="login-email">Email</label>
+          <label for="login-email">Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 
           <input
             type="email"
@@ -88,7 +88,7 @@ const Login = () => {
             placeholder="Enter your email"
             onChange={handleOnChange}
           />
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Password&nbsp;</label>
           <input
             type="password"
             name="password"
