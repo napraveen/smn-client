@@ -6,10 +6,28 @@ import bestBook from '../images/books.webp';
 import lmsLogo from '../images/lmslogo.png';
 const Home = () => {
   const { userDetails } = GetUserDetails();
+  // const handleLogout = () => {
+  //   document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;';
+  //   window.location.href = '/';
+  // };
   const handleLogout = () => {
-    document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;';
-    window.location.href = '/';
+    const serverOrigin = process.env.REACT_APP_SERVER_ORIGIN;
+
+    fetch(`${serverOrigin}/auth/logout`, {
+      method: 'POST',
+      credentials: 'include', // Ensure cookies are included
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.message === 'Logged out successfully') {
+          window.location.href = '/';
+        }
+      })
+      .catch((error) => {
+        console.error('Error logging out:', error);
+      });
   };
+
   return (
     <>
       <div className="home-home_page">
@@ -25,19 +43,31 @@ const Home = () => {
               <div className="header-middle">
                 <p>
                   {' '}
-                  <Link to="/" style={{ textDecoration: 'none' }} className='home-header-text'>
+                  <Link
+                    to="/"
+                    style={{ textDecoration: 'none' }}
+                    className="home-header-text"
+                  >
                     Home
                   </Link>
                 </p>
                 <p>
                   {' '}
-                  <Link to="/availablebooks" style={{ textDecoration: 'none' }} className='home-header-text'>
+                  <Link
+                    to="/availablebooks"
+                    style={{ textDecoration: 'none' }}
+                    className="home-header-text"
+                  >
                     Available Books
                   </Link>
                 </p>
                 <p>
                   {' '}
-                  <Link to="/duedates" style={{ textDecoration: 'none' }} className='home-header-text'>
+                  <Link
+                    to="/duedates"
+                    style={{ textDecoration: 'none' }}
+                    className="home-header-text"
+                  >
                     Due Dates
                   </Link>
                 </p>
@@ -97,19 +127,31 @@ const Home = () => {
               <div className="header-middle">
                 <p>
                   {' '}
-                  <Link to="/" style={{ textDecoration: 'none' }} className='home-header-text'>
+                  <Link
+                    to="/"
+                    style={{ textDecoration: 'none' }}
+                    className="home-header-text"
+                  >
                     Home
                   </Link>
                 </p>
                 <p>
                   {' '}
-                  <Link to="/availablebooks" style={{ textDecoration: 'none' }} className='home-header-text'>
+                  <Link
+                    to="/availablebooks"
+                    style={{ textDecoration: 'none' }}
+                    className="home-header-text"
+                  >
                     Available Books
                   </Link>
                 </p>
                 <p>
                   {' '}
-                  <Link to="/duedates" style={{ textDecoration: 'none' }} className='home-header-text'>
+                  <Link
+                    to="/duedates"
+                    style={{ textDecoration: 'none' }}
+                    className="home-header-text"
+                  >
                     Due Dates
                   </Link>
                 </p>
