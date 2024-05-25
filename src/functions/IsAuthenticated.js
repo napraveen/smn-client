@@ -5,10 +5,11 @@ const IsAuthenticated = () => {
   const [authenticated, setAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
   const [username, setUsername] = useState('');
+  const serverOrigin = process.env.REACT_APP_SERVER_ORIGIN;
 
   useEffect(() => {
     axios
-      .get('http://localhost:4000/auth/check-auth', {
+      .get(`${serverOrigin}/auth/check-auth`, {
         withCredentials: true,
       })
       .then((response) => {

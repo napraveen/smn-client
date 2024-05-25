@@ -6,6 +6,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import '../css/Signup.css';
 const Signup = () => {
   const navigate = useNavigate();
+  const serverOrigin = process.env.REACT_APP_SERVER_ORIGIN;
+
   const [inputValue, setInputValue] = useState({
     email: '',
     password: '',
@@ -33,7 +35,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        'http://localhost:4000/auth/signup',
+        `${serverOrigin}/auth/signup`,
         {
           ...inputValue,
         },

@@ -4,14 +4,13 @@ import IsAuthenticated from './IsAuthenticated';
 const GetUserDetails = () => {
   const { authenticated, username } = IsAuthenticated();
   const [userDetails, setUserDetails] = useState(null);
+  const serverOrigin = process.env.REACT_APP_SERVER_ORIGIN;
 
   useEffect(() => {
     const getUserDetails = async () => {
       if (username) {
         try {
-          const response = await fetch(
-            `http://localhost:4000/api/user/${username}`
-          );
+          const response = await fetch(`${serverOrigin}/api/user/${username}`);
 
           if (response.ok) {
             const user = await response.json();
