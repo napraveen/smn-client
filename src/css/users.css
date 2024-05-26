@@ -1,0 +1,41 @@
+.table-container {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+table {
+  width: 70%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 16px;
+margin-left: 30px;
+}
+
+th,
+td {
+  padding: 10px;
+}
+
+button {
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 150px;
+  background-color: #a4ff9f;
+  color: black;
+}
+
+button:hover{
+    background-color: #74ff6c;
+}
+.button-reject{
+    background-color: rgb(255, 194, 194);
+}
+.button-reject:hover {
+  background-color: rgb(255, 112, 112);
+  color: white;
+}

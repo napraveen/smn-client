@@ -54,16 +54,42 @@ const Header = () => {
                 Available Books
               </Link>
             </p>
-            <p>
-              {' '}
-              <Link
-                to="/duedates"
-                style={{ textDecoration: 'none' }}
-                className="home-header-text"
-              >
-                Due Dates
-              </Link>
-            </p>
+            {userDetails.username === 'admin' ? (
+              <>
+                {' '}
+                <p>
+                  {' '}
+                  <Link
+                    to="/upload"
+                    style={{ textDecoration: 'none' }}
+                    className="home-header-text"
+                  >
+                    Upload
+                  </Link>
+                </p>
+                <p>
+                  {' '}
+                  <Link
+                    to="/users"
+                    style={{ textDecoration: 'none' }}
+                    className="home-header-text"
+                  >
+                    Users
+                  </Link>
+                </p>
+              </>
+            ) : (
+              <p>
+                {' '}
+                <Link
+                  to="/duedates"
+                  style={{ textDecoration: 'none' }}
+                  className="home-header-text"
+                >
+                  Due Dates
+                </Link>
+              </p>
+            )}
           </div>
           <div className="header-right">
             <Link to="/">

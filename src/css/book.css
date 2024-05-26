@@ -44,6 +44,12 @@
 .book-container h4 a {
   text-decoration: none;
 }
+.book-container .book-description p{
+  height:90px;
+  overflow: hidden;
+  width: 250px;
+  /* color: yellow; */
+}
 
 .book-container h4 a:hover {
   color: rgb(195, 127, 254);
@@ -52,6 +58,8 @@
 
 .book-container:hover {
   border: 2px solid rgb(163, 58, 255);
+  
+  background-color: rgb(246, 235, 255);
 }
 
 .book-logos {

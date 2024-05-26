@@ -25,11 +25,11 @@ const AvailableBooks = () => {
     <div>
       <Header />
       <div className="book-body">
-        <h1>
+        <h3>
           {' '}
           Hey there, Welcome to our
           <span> books collection!! </span>
-        </h1>
+        </h3>
         <div className="all-books">
           {books.map((book, index) => (
             <div className="book-container" key={index}>
@@ -50,11 +50,13 @@ const AvailableBooks = () => {
                 </a>
               </h4>
               <p>By {book.author}</p>
-              <p>{book.description}</p>
+              <div className="book-description">
+                <p>{book.description}</p>
+              </div>
             </div>
           ))}
         </div>
-        (Development Mode: ON, will upload other books soon)
+        (More Books get uploaded soon)
       </div>
     </div>
   );
