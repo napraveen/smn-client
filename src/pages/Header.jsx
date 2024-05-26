@@ -80,7 +80,6 @@ const Header = () => {
             {' '}
             <img src={lmsLogo} alt="Logo" className="my-logo" />
             &nbsp;
-            <h4>LMS</h4>
           </div>
           <div className="header-middle">
             <p>

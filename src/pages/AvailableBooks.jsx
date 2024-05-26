@@ -20,6 +20,7 @@ const AvailableBooks = () => {
     fetchBooks();
   }, []);
 
+  console.log('Books:', books);
   return (
     <div>
       <Header />
@@ -32,20 +33,23 @@ const AvailableBooks = () => {
         <div className="all-books">
           {books.map((book, index) => (
             <div className="book-container" key={index}>
-              <a href={book.link} target="/">
-                {' '}
+              <a href={book.fileUrl} target="_blank" rel="noopener noreferrer">
                 <img
-                  src={book.imgSrc}
-                  alt={book.altText}
+                  src={book.fileUrl}
+                  alt={book.bookname}
                   className="book-logos"
                 />
               </a>
-
               <h4>
-                <a href={book.link} target="_blank" rel="noopener noreferrer">
-                  {book.title}
+                <a
+                  href={book.fileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {book.bookname}
                 </a>
               </h4>
+              <p>By {book.author}</p>
               <p>{book.description}</p>
             </div>
           ))}

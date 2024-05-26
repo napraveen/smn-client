@@ -4,12 +4,26 @@ import axios from 'axios';
 const ImageUpload = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [imageUrl, setImageUrl] = useState('');
+  const [bookData, setBookData] = useState({
+    bookname: '',
+    author: '',
+    description: '',
+  });
   const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const serverOrigin = process.env.REACT_APP_SERVER_ORIGIN;
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setBookData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
   const handleUpload = async (event) => {
@@ -18,8 +32,9 @@ const ImageUpload = () => {
     try {
       const formData = new FormData();
       formData.append('file', selectedFile);
-      formData.append('title', 'My Book Title');
-      formData.append('author', 'My Book Author');
+      formData.append('bookname', bookData.bookname);
+      formData.append('author', bookData.author);
+      formData.append('description', bookData.description);
 
       const response = await axios.post(
         `${serverOrigin}/api/upload-image`,
@@ -33,6 +48,8 @@ const ImageUpload = () => {
 
       console.log('Image uploaded successfully:', response.data.imageUrl);
       setImageUrl(response.data.imageUrl);
+      setBookData({ bookname: '', author: '', description: '' });
+      setSelectedFile(null);
     } catch (error) {
       console.error('Error uploading image:', error);
     }
@@ -40,12 +57,14 @@ const ImageUpload = () => {
 
   useEffect(() => {
     const fetchBooks = async () => {
+      setLoading(true);
       try {
         const response = await axios.get(`${serverOrigin}/books`);
         setBooks(response.data);
       } catch (error) {
         console.error('Error fetching books:', error);
       }
+      setLoading(false);
     };
 
     fetchBooks();
@@ -56,6 +75,27 @@ const ImageUpload = () => {
       <h2>Image Upload</h2>
       <form onSubmit={handleUpload}>
         <input type="file" name="file" onChange={handleFileChange} />
+        <input
+          type="text"
+          name="bookname"
+          value={bookData.bookname}
+          onChange={handleChange}
+          placeholder="Book Name"
+        />
+        <input
+          type="text"
+          name="author"
+          value={bookData.author}
+          onChange={handleChange}
+          placeholder="Author"
+        />
+        <input
+          type="text"
+          name="description"
+          value={bookData.description}
+          onChange={handleChange}
+          placeholder="Description"
+        />
         <button type="submit">Upload</button>
       </form>
       {imageUrl && (
@@ -69,19 +109,24 @@ const ImageUpload = () => {
         </div>
       )}
       <h3>Uploaded Books</h3>
-      <div>
-        {books.map((book) => (
-          <div key={book._id}>
-            <h4>{book.title}</h4>
-            <p>{book.author}</p>
-            <img
-              src={book.fileUrl}
-              alt={book.title}
-              style={{ maxWidth: '100%' }}
-            />
-          </div>
-        ))}
-      </div>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <div>
+          {books.map((book) => (
+            <div key={book._id}>
+              <h4>{book.bookname}</h4>
+              <p>{book.author}</p>
+              <p>{book.description}</p>
+              <img
+                src={book.fileUrl}
+                alt={book.bookname}
+                style={{ maxWidth: '100%' }}
+              />
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
