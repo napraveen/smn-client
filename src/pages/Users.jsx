@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from './Header';
 import axios from 'axios';
 import '../css/users.css';
-
+import { ToastContainer, toast } from 'react-toastify';
 import GetUserDetails from '../functions/GetUserDetails';
 const Users = () => {
   const { userDetails } = GetUserDetails();
@@ -24,12 +24,20 @@ const Users = () => {
 
   const handleVerify = async (userId) => {
     const { data } = await axios.post(`${serverOrigin}/verify`, { userId });
+    setAllUsers((prevUsers) => prevUsers.filter((user) => user._id !== userId));
+    toast.success('User verified successfully', {
+      position: 'bottom-right',
+    });
     console.log(data);
   };
 
   const handleReject = async (userId) => {
     const { data } = await axios.delete(`${serverOrigin}/reject`, {
       data: { userId },
+    });
+    setAllUsers((prevUsers) => prevUsers.filter((user) => user._id !== userId));
+    toast.error('User Rejected Successfully', {
+      position: 'bottom-right',
     });
     console.log(data);
   };
@@ -71,7 +79,8 @@ const Users = () => {
                     </td>
                   </tr>
                 ))}
-            </tbody>
+            </tbody>{' '}
+            <ToastContainer position="bottom-right" />
           </table>
         </>
       ) : (
