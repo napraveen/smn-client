@@ -5,6 +5,8 @@ import Signup from './pages/Signup';
 import AvailableBooks from './pages/AvailableBooks';
 import Upload from './pages/Upload';
 import User from './pages/Users';
+import IssuedBooks from './pages/IssuedBooks';
+import DueDates from './pages/DueDates';
 function App() {
   return (
     <div className="App">
@@ -15,6 +17,8 @@ function App() {
         <Route path="/availablebooks" element={<AvailableBooks />} />
         <Route path="/upload" element={<Upload />} />
         <Route path="/users" element={<User />} />
+        <Route path="/issuedbooks" element={<IssuedBooks />}></Route>
+        <Route path="/duedates" element={<DueDates />}></Route>
       </Routes>
     </div>
   );

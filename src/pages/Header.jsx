@@ -77,6 +77,16 @@ const Header = () => {
                     Users
                   </Link>
                 </p>
+                <p>
+                  {' '}
+                  <Link
+                    to="/issuedbooks"
+                    style={{ textDecoration: 'none' }}
+                    className="home-header-text"
+                  >
+                    Issued Books
+                  </Link>
+                </p>
               </>
             ) : (
               <p>
@@ -126,16 +136,6 @@ const Header = () => {
                 className="home-header-text"
               >
                 Available Books
-              </Link>
-            </p>
-            <p>
-              {' '}
-              <Link
-                to="/duedates"
-                style={{ textDecoration: 'none' }}
-                className="home-header-text"
-              >
-                Due Dates
               </Link>
             </p>
           </div>

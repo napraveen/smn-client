@@ -3,7 +3,9 @@ import Header from './Header';
 import axios from 'axios';
 import '../css/users.css';
 
+import GetUserDetails from '../functions/GetUserDetails';
 const Users = () => {
+  const { userDetails } = GetUserDetails();
   const [allUsers, setAllUsers] = useState([]);
   const serverOrigin = process.env.REACT_APP_SERVER_ORIGIN;
 
@@ -34,38 +36,47 @@ const Users = () => {
 
   return (
     <div>
-      <Header />
-      <table border="1">
-        <thead>
-          <tr>
-            <th>Email</th>
-            <th>Username</th>
-            <th>Verify</th>
-            <th>Reject</th>
-          </tr>
-        </thead>
-        <tbody>
-          {allUsers
-            .filter((item) => item.username !== 'admin')
-            .map((item) => (
-              <tr key={item._id}>
-                <td>{item.email}</td>
-                <td>{item.username}</td>
-                <td>
-                  <button onClick={() => handleVerify(item._id)}>Verify</button>
-                </td>
-                <td>
-                  <button
-                    className="button-reject"
-                    onClick={() => handleReject(item._id)}
-                  >
-                    Reject
-                  </button>
-                </td>
+      {userDetails ? (
+        <>
+          {' '}
+          <Header />
+          <table border="1">
+            <thead>
+              <tr>
+                <th>Email</th>
+                <th>Username</th>
+                <th>Verify</th>
+                <th>Reject</th>
               </tr>
-            ))}
-        </tbody>
-      </table>
+            </thead>
+            <tbody>
+              {allUsers
+                .filter((item) => item.username !== 'admin')
+                .map((item) => (
+                  <tr key={item._id}>
+                    <td>{item.email}</td>
+                    <td>{item.username}</td>
+                    <td>
+                      <button onClick={() => handleVerify(item._id)}>
+                        Verify
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        className="button-reject"
+                        onClick={() => handleReject(item._id)}
+                      >
+                        Reject
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </>
+      ) : (
+        ''
+      )}
     </div>
   );
 };
