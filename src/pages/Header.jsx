@@ -140,7 +140,7 @@ const Header = () => {
             </p>
           </div>
           <div className="header-right">
-            <Link to="/login">
+            <Link to="/login" style={{ textDecoration: 'none' }}>
               {' '}
               <button className="login">Login</button>
             </Link>
