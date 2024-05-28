@@ -89,7 +89,7 @@ const Header = () => {
                 </p>
               </>
             ) : (
-              (userDetails.verified !== '')(
+              userDetails.verified !== '' && (
                 <p>
                   {' '}
                   <Link
