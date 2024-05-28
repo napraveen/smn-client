@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from './Header';
 import GetUserDetails from '../functions/GetUserDetails';
 import axios from 'axios';
+import PageNotFound from './PageNotFound';
 const DueDates = () => {
   const { userDetails } = GetUserDetails();
   const [issuedBooks, setIssuedBooks] = useState([]);
@@ -43,11 +44,13 @@ const DueDates = () => {
 
   return (
     <div>
-      {userDetails && userDetails.verified !== '' ? (
+      {userDetails &&
+      userDetails.verified !== '' &&
+      userDetails.username !== 'admin' ? (
         <>
           {' '}
           <Header />
-          <h2>Issued Books</h2>
+          <h2 style={{marginLeft:"30px"}}>Issued Books</h2>
           <table border="1">
             <thead>
               <tr>
@@ -73,7 +76,7 @@ const DueDates = () => {
           </table>
         </>
       ) : (
-        ''
+        <PageNotFound />
       )}
     </div>
   );

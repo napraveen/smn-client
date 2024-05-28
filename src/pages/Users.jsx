@@ -4,6 +4,7 @@ import axios from 'axios';
 import '../css/users.css';
 import { ToastContainer, toast } from 'react-toastify';
 import GetUserDetails from '../functions/GetUserDetails';
+import PageNotFound from './PageNotFound';
 const Users = () => {
   const { userDetails } = GetUserDetails();
   const [allUsers, setAllUsers] = useState([]);
@@ -44,7 +45,7 @@ const Users = () => {
 
   return (
     <div>
-      {userDetails ? (
+      {userDetails && userDetails.username === 'admin' ? (
         <>
           {' '}
           <Header />
@@ -84,7 +85,7 @@ const Users = () => {
           </table>
         </>
       ) : (
-        ''
+        <PageNotFound />
       )}
     </div>
   );

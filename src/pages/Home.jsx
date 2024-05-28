@@ -29,7 +29,7 @@ const Home = () => {
                     us on a journey through endless stories and limitless
                     learning. Your next adventure awaits!
                   </p>
-                  <Link to="/availablebooks">
+                  <Link to="/availablebooks" style={{textDecoration:"none"}}>
                     <button className="get-started">Get Started</button>
                   </Link>
                 </div>

@@ -4,6 +4,7 @@ import '../css/upload.css';
 import Header from './Header';
 
 import GetUserDetails from '../functions/GetUserDetails';
+import PageNotFound from './PageNotFound';
 const ImageUpload = () => {
   const { userDetails } = GetUserDetails();
 
@@ -112,7 +113,7 @@ const ImageUpload = () => {
           </div>
         </>
       ) : (
-        ''
+        <PageNotFound />
       )}
     </div>
   );

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Header from './Header';
 import GetUserDetails from '../functions/GetUserDetails';
+import PageNotFound from './PageNotFound';
 
 const IssuedBooks = () => {
   const { userDetails } = GetUserDetails();
@@ -35,7 +36,7 @@ const IssuedBooks = () => {
 
   return (
     <div>
-      {userDetails ? (
+      {userDetails && userDetails.username === 'admin' ? (
         <>
           {' '}
           <Header />
@@ -65,7 +66,7 @@ const IssuedBooks = () => {
           </table>
         </>
       ) : (
-        ''
+        <PageNotFound />
       )}
     </div>
   );
