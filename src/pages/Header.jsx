@@ -89,16 +89,18 @@ const Header = () => {
                 </p>
               </>
             ) : (
-              <p>
-                {' '}
-                <Link
-                  to="/duedates"
-                  style={{ textDecoration: 'none' }}
-                  className="home-header-text"
-                >
-                  Due Dates
-                </Link>
-              </p>
+              (userDetails.verified !== '')(
+                <p>
+                  {' '}
+                  <Link
+                    to="/duedates"
+                    style={{ textDecoration: 'none' }}
+                    className="home-header-text"
+                  >
+                    Due Dates
+                  </Link>
+                </p>
+              )
             )}
           </div>
           <div className="header-right">
